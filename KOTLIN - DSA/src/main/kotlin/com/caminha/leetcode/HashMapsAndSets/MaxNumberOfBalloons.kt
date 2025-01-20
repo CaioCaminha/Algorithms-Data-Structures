@@ -1,6 +1,7 @@
 package com.caminha.leetcode.HashMapsAndSets
 
 import java.awt.SystemColor.text
+import java.time.LocalDate
 
 fun maxNumberOfBalloons(text: String): Int {
     //TODO: Improve Runtime complexity
@@ -38,5 +39,5 @@ fun maxNumberOfBalloons(text: String): Int {
 }
 
 fun main() {
-    println(maxNumberOfBalloons("nlaebolko"))
+    println(LocalDate.now())
 }
