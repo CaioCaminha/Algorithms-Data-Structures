@@ -26,28 +26,20 @@ fun groupAnagrams(strs: Array<String>): List<List<String>> {
     return result
 }
 
-//fun compareStrings(list: List<String>): Boolean {
-//    val sortedMap = mutableMapOf<String, Set<Int>>()
-//    val result = mutableListOf<List<String>>()
-//    list.forEachIndexed { index, s ->
-//        val sorted = s.toCharArray().sorted().joinToString("")
-//        if(sortedMap.containsKey(sorted)) {
-//            val currentIndexes = sortedMap[sorted]
-//            sortedMap[sorted] = currentIndexes!! + setOf(index)
-//        }else {
-//            sortedMap.put(sorted, setOf(index))
-//        }
-//    }
-//
-////    sortedMap.entries.forEach { (key, value) ->
-////        result.add(
-////            value.map {
-////                list[it]
-////            }
-////        )
-////    }
-////
-//    sortedMap.values.forEach { value ->
+fun compareStrings(list: List<String>): Boolean {
+    val sortedMap = mutableMapOf<String, Set<Int>>()
+    val result = mutableListOf<List<String>>()
+    list.forEachIndexed { index, s ->
+        val sorted = s.toCharArray().sorted().joinToString("")
+        if(sortedMap.containsKey(sorted)) {
+            val currentIndexes = sortedMap[sorted]
+            sortedMap[sorted] = currentIndexes!! + setOf(index)
+        }else {
+            sortedMap.put(sorted, setOf(index))
+        }
+    }
+
+//    sortedMap.entries.forEach { (key, value) ->
 //        result.add(
 //            value.map {
 //                list[it]
@@ -55,11 +47,19 @@ fun groupAnagrams(strs: Array<String>): List<List<String>> {
 //        )
 //    }
 //
-//    println(result)
-//
-//
-//    return true
-//}
+    sortedMap.values.forEach { value ->
+        result.add(
+            value.map {
+                list[it]
+            }
+        )
+    }
+
+    println(result)
+
+
+    return true
+}
 
 fun something(str: String) {
     for(c in str.toCharArray()) {
