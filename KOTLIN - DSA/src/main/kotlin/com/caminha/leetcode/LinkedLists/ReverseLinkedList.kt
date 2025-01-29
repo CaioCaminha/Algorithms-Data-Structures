@@ -25,6 +25,18 @@ fun recursiveReverseLinkedList(head: ListNode?): ListNode? {
     return newHead
 }
 
+fun anotherReverseLinkedList(prev: ListNode?, current: ListNode?): ListNode? {
+    if(current == null) return prev // prev will be the last item since current is null
+
+    var next = current.next
+    current.next = prev
+
+    return anotherReverseLinkedList(
+        prev = current,
+        current = next
+    )
+}
+
 
 fun betterRecursiveReverseLinkedList(head: ListNode?): ListNode? {
     return recursive(null, head)
