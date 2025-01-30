@@ -15,6 +15,23 @@ fun hasCycle(head: ListNode?): Boolean {
     return false
 }
 
+fun hasCycleUsingSlowAndFast(head: ListNode?): Boolean {
+    var fast = head
+    var slow = head
+
+    /**
+     * If there's a cycle, at some point the fast and slow will be pointing to the same reference
+     * */
+    while(fast?.next != null) {
+        slow = slow?.next
+        fast = fast.next?.next
+
+        if(slow == fast) return true
+    }
+
+    return false
+}
+
 fun main() {
     hasCycle(
         head = ListNode(3).apply {
