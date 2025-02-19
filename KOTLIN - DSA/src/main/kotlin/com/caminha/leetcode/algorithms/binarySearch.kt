@@ -4,24 +4,36 @@ class binarySearch {
     //binary search example using kotlin
 
     //the function receives the list and the item
-    fun binarySearch(list: List<Int>, item: Int): Int? {
+    fun search(nums: IntArray, target: Int): Int {
         var low = 0
-        var high = list.size - 1
+        var high = nums.size - 1
 
-        while (low < high) {
-            val mid = (low + high)
-            val guess = list[mid]
+        while (low <= high) {
+            val mid = (low + high) / 2
+            if(nums[mid] == target) return mid
 
-            if (guess == item) return mid
-            if (guess < item) high = mid - 1
-            else low = mid + 1
+            if(nums[mid] < target) low = mid + 1
+
+            if(nums[mid] > target) high = mid - 1
         }
 
-        return null
+        return -1
     }
 
 
 
+}
+
+fun recursiveBinarySearch(list: List<Int>, left: Int, right: Int, item: Int): Int? {
+    if(right >= left) {
+        val mid = left + (right - left) / 2
+        if (list[mid] == item) return mid
+
+        if (list[mid] > item) return recursiveBinarySearch(list,left, mid - 1, item )
+
+        return recursiveBinarySearch(list, mid + 1, right, item )
+    }
+    return -1
 }
 
 fun main(args: Array<String>) {
