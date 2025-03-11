@@ -6,6 +6,10 @@ fun isBalanced(root: TreeNode?): Boolean {
     return height(root) != -1
 }
 
+/**
+ * This function it's also checking if the tree is balanced
+ * That's the reason why it's returning -1 when the tree is not balanced
+ * */
 fun height(root: TreeNode?): Int {
     if(root == null) return 0
 
@@ -15,8 +19,11 @@ fun height(root: TreeNode?): Int {
     val rightHeight = height(root.right)
     if(rightHeight == -1) return -1
 
+    //If the diference between left and right heigh it's greater than 1 the tree is unbalanced
     if(Math.abs(leftHeight - rightHeight) > 1) return -1
 
+    //returning 1 + max value of left and right height.
+    //1 counts for the current node itself
     return 1 + Math.max(leftHeight, rightHeight)
 }
 
