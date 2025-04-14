@@ -1,5 +1,7 @@
 package com.caminha.leetcode.HashMapsAndSets
 
+import java.util.concurrent.ConcurrentHashMap
+
 fun majorityElement(nums: IntArray): Int {
     val mapping = hashMapOf<Int, Int>()
     for(num in nums) {
@@ -49,3 +51,7 @@ fun main() {
 
     println(majorityElement(intArrayOf(3,3,4)))
 }
+
+public inline fun <K, V> concurrentHashMapOf(): ConcurrentHashMap<K, V> = ConcurrentHashMap<K, V>()
+
+public inline fun <K, V> concurrentHashMapOf(vararg pairs: Pair<K, V>): ConcurrentHashMap<K, V> = ConcurrentHashMap<K, V>(pairs.size).apply { putAll(pairs) }
