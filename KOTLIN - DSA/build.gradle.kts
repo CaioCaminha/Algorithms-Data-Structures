@@ -36,6 +36,8 @@ java {
     sourceCompatibility = JavaVersion.toVersion("17")
 }
 
+java.targetCompatibility = JavaVersion.VERSION_17
+
 
 graalvmNative.toolchainDetection = false
 

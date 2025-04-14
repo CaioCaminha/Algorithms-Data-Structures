@@ -51,17 +51,54 @@ fun longestPath(root: TreeNode?): Int {
 }
 
 
+//fun main() {
+//    println(
+//        longestPath(
+//            TreeNode(1).apply {
+//                left = TreeNode(2)
+//                    .apply {
+//                        left = TreeNode(4)
+//                        right = TreeNode(5)
+//                    }
+//                right = TreeNode(3)
+//            }
+//        )
+//    )
+//}
+
+
+data class Car(
+    val model: String,
+    val price: Double,
+) {
+    fun setPrice(price: Double) {
+        this.price.plus(price)
+    }
+}
+
 fun main() {
-    println(
-        longestPath(
-            TreeNode(1).apply {
-                left = TreeNode(2)
-                    .apply {
-                        left = TreeNode(4)
-                        right = TreeNode(5)
-                    }
-                right = TreeNode(3)
-            }
-        )
+    val myCar = Car(
+        model = "Up",
+        price = 200.0,
     )
+    val numero = 10
+    soma(numero)
+    println(numero)
+
+
+    changeSomething(myCar)
+
+    println(myCar.model)
+    println(myCar.price)
+
+}
+
+
+fun soma(numero: Int): Int{
+    return 10 + numero
+}
+
+fun changeSomething(car: Car) {
+    //it received the reference of the objeto therefore it's
+    car.setPrice(10.00)
 }
