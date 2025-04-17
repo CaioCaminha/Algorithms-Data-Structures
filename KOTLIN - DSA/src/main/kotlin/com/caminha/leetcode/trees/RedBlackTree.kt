@@ -1,15 +1,42 @@
 package com.caminha.leetcode.trees
 
-class RedBlackTree<T>(
+
+class RedBlackTree<T: Comparable<T>>( //type parameter T that extends Comparable so we can use the < operator
     var root: RedBlackTree<T>?,
     var parent: RedBlackTree<T>?,
-    var left: RedBlackTree<T>?,
-    var right: RedBlackTree<T>?,
-    var isRed: Boolean,
+    var left: RedBlackTree<T>? = null,
+    var right: RedBlackTree<T>? = null,
+    var isRed: Boolean = true,
     var value: T
 ) {
 
+    fun insert(tree: RedBlackTree<T>, value: T) {
+        val newNode = RedBlackTree(
+            root = tree.root,
+            parent = null,
+            value = value
+        )
+        var current = tree.root
+        var parent: RedBlackTree<T>? = null
+
+        while (current != null) {
+            parent = current
+            if(newNode.value < current.value) {
+                current = current.left
+            } else {
+                current = current.right
+            }
+        }
+
+    }
+
+    private fun isLeaf(node: RedBlackTree<T>): Boolean {
+        return node.left == null && node.right == null
+    }
+
     fun rotate_left(u: RedBlackTree<T>) {
+        if(isLeaf(node = u)) throw Exception("You can't rotate on a leaf node!")
+
         var v = u.right
         u.right = v?.left
 
@@ -44,8 +71,13 @@ class RedBlackTree<T>(
         if(u.parent == null) {
             u.parent = v
         } else if(u.parent?.right == u) {  // check if it's a right child
-
+            u.parent?.left = v
+        } else {
+            u.parent?.right = v
         }
+
+        v?.right = u
+        u.parent = v
     }
 
 
