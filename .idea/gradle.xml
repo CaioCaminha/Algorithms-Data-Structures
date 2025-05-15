@@ -6,6 +6,20 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$/Java-DSA" />
         <option name="gradleHome" value="" />
         <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Java-DSA" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/KOTLIN - DSA" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/KOTLIN - DSA" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
